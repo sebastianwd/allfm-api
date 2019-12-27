@@ -1,0 +1,34 @@
+{
+  "name": "allfm-api",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/app.js",
+    "build": "babel src --out-dir dist"
+  },
+  "author": "Sebastian Luque",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "nodemon": "^2.0.1",
+    "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8",
+    "graphql-playground-middleware-express": "^1.7.12",
+    "graphql-relay": "^0.6.0",
+    "lodash": "^4.17.15"
+  }
+}

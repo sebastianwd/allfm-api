@@ -1,0 +1,17 @@
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    "@babel/plugin-proposal-optional-chaining",
+    [
+      "module-resolver",
+      {
+        "root": ["./src/"],
+        "alias": {
+          "queries": "./queries",
+          "types": "./types",
+          "utils": "./utils"
+        }
+      }
+    ]
+  ]
+}
