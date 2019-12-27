@@ -15,7 +15,7 @@ const normalizeArtist = data => {
       biography: item.strBiographyEN,
       memberQuantity: item.intMembers,
       location: item.strCountry,
-      disbanded: item.strDisbanded ? true : false,
+      disbanded: !!item.strDisbanded,
       disbandedYear: item.intDiedYear
     }
   })

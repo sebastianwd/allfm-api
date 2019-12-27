@@ -1,0 +1,16 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true
+  },
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+
+  "plugins": ["prettier", "promise"],
+
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
