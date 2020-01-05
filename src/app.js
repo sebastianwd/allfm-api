@@ -1,4 +1,6 @@
 import 'dotenv/config'
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 import express from 'express'
 import bodyparser from 'body-parser'
 import cors from 'cors'
@@ -7,7 +9,7 @@ import graphqlHTTP from 'express-graphql'
 import schema from './schema'
 
 const app = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 
 app.use(
   '/graphql',

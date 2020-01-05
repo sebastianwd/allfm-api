@@ -7,14 +7,16 @@ import {
   GraphQLList
 } from 'graphql'
 import { toGlobalId } from 'graphql-relay'
-import { requestLastFM } from '../utils/request'
+import { map } from 'lodash'
+import { requestLastFM } from 'utils'
 
 const ArtistType = new GraphQLObjectType({
   name: 'Artist',
   fields: () => ({
     id: {
       type: GraphQLID,
-      resolve: response => toGlobalId('Artist', response.idArtist)
+      resolve: response =>
+        toGlobalId('Artist', response.strArtist || response.name)
     },
     name: {
       type: GraphQLString,
@@ -70,24 +72,28 @@ const ArtistType = new GraphQLObjectType({
     },
     disbanded: {
       type: GraphQLBoolean,
-      resolve: response => (response.strDisbanded ? true : false)
+      resolve: response => !!response.strDisbanded
     },
     disbandedYear: {
       type: GraphQLString,
       resolve: response => response.intDiedYear
     },
     similarArtists: {
-      type: new GraphQLList(ArtistType),
-      resolve: async response => {
-        const args = {
-          name: response.name,
-          limit: 12
+      args: {
+        limit: { type: GraphQLInt }
+      },
+      type: new GraphQLList(GraphQLString),
+      resolve: async (response, args) => {
+        const params = {
+          name: response.strArtist || response.name,
+          limit: args.limit
         }
-        var asdasd
-        const similar = await requestLastFM('artist.getsimilar', args)
+
+        const similar = await requestLastFM('artist.getsimilar', params)
+
         const { artist } = similar.data?.similarartists
 
-        return artist
+        return map(artist, item => item.name)
       }
     }
   })

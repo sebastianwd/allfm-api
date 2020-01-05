@@ -5,11 +5,11 @@
     [
       "module-resolver",
       {
-        "root": ["./src/"],
+        "root": ["."],
         "alias": {
-          "queries": "./queries",
-          "types": "./types",
-          "utils": "./utils"
+          "queries": "./src/queries",
+          "types": "./src/types",
+          "utils": "./src/utils"
         }
       }
     ]

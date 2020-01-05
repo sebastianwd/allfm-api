@@ -14,11 +14,11 @@ const createQueryParam = param => {
 }
 
 export const requestLastFM = async (method, args) => {
-  const { limit, name } = args
+  const { limit, name, track } = args
 
   return Axios.get(
     // prettier-ignore
-    `http://ws.audioscrobbler.com/2.0/?method=${method}&format=json&api_key=${process.env.LASTFM_API_KEY}${createQueryParam({ limit })}${createQueryParam({ artist: name })}`
+    `http://ws.audioscrobbler.com/2.0/?method=${method}&format=json&api_key=${process.env.LASTFM_API_KEY}${createQueryParam({ limit })}${createQueryParam({ artist: name })}${createQueryParam({ track })}`
   )
 }
 
