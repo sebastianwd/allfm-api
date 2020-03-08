@@ -6,6 +6,7 @@ import bodyparser from 'body-parser'
 import cors from 'cors'
 import expressPlayground from 'graphql-playground-middleware-express'
 import graphqlHTTP from 'express-graphql'
+import { express as voyagerMiddleware } from 'graphql-voyager/middleware'
 import schema from './schema'
 
 const app = express()
@@ -21,6 +22,11 @@ app.use(
   })
 )
 
+app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }))
+
 app.get('/playground', expressPlayground({ endpoint: '/graphql' }))
 
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}...`))
+app.listen(PORT, () => {
+  console.log(`GraphQL server listening on http://localhost:${PORT}/graphql`)
+  console.log(`Voyager http://localhost:${PORT}/voyager`)
+})

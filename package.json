@@ -40,6 +40,7 @@
     "graphql": "^14.5.8",
     "graphql-playground-middleware-express": "^1.7.12",
     "graphql-relay": "^0.6.0",
+    "graphql-voyager": "^1.0.0-rc.29",
     "lodash": "^4.17.15",
     "passport": "^0.4.1",
     "redis": "^2.8.0",
