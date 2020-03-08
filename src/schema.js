@@ -3,7 +3,9 @@ import {
   ArtistQuery,
   searchArtistQuery,
   similarArtistsQuery,
-  artistTracksQuery
+  artistTracksQuery,
+  artistAlbumsQuery,
+  albumQuery
 } from 'queries'
 
 const RootQuery = new GraphQLObjectType({
@@ -12,7 +14,9 @@ const RootQuery = new GraphQLObjectType({
     artist: ArtistQuery,
     searchArtist: searchArtistQuery,
     similarArtist: similarArtistsQuery,
-    artistTracks: artistTracksQuery
+    artistTracks: artistTracksQuery,
+    artistAlbums: artistAlbumsQuery,
+    album: albumQuery
   }
 })
 

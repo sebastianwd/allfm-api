@@ -42,6 +42,9 @@
     "graphql-relay": "^0.6.0",
     "lodash": "^4.17.15",
     "passport": "^0.4.1",
-    "regenerator-runtime": "^0.13.3"
+    "redis": "^2.8.0",
+    "regenerator-runtime": "^0.13.3",
+    "youtube-dl": "^2.3.0",
+    "yt-search": "^0.4.3"
   }
 }

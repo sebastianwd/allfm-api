@@ -1,6 +1,7 @@
 import { GraphQLString, GraphQLInt, GraphQLList } from 'graphql'
 import { TrackType } from 'types'
 import { requestLastFM } from 'utils'
+import { get } from 'lodash'
 
 export default {
   type: new GraphQLList(TrackType),
@@ -12,7 +13,7 @@ export default {
   resolve: async (_, args) => {
     const response = await requestLastFM('artist.getTopTracks', args)
 
-    const { track } = response.data?.toptracks
+    const track = get(response.data, 'toptracks.track')
 
     return track
   }
